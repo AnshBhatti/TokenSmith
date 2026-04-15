@@ -27,6 +27,7 @@ from src.retriever import (
     load_artifacts
 )
 from src.ranking.reranker import rerank
+from src.routing.semantic_router import SemanticRouter
 
 ANSWER_NOT_FOUND = "I'm sorry, but I don't have enough information to answer that question."
 
@@ -94,6 +95,7 @@ def use_indexed_chunks(question: str, chunks: list) -> list:
         for page_no in extracted_index[word]
         for chunk_id in page_to_chunk_map.get(str(page_no), [])
     }
+
     return [chunks[cid] for cid in chunk_ids], list(chunk_ids)
 
 def get_answer(
@@ -105,7 +107,8 @@ def get_answer(
     artifacts: Optional[Dict] = None,
     golden_chunks: Optional[list] = None,
     is_test_mode: bool = False,
-    additional_log_info: Optional[Dict[str, Any]] = None
+    additional_log_info: Optional[Dict[str, Any]] = None,
+    model_path: Optional[str] = None
 ) -> Union[str, Tuple[str, List[Dict[str, Any]], Optional[str]]]:
     """
     Run a single query through the pipeline.
@@ -118,6 +121,8 @@ def get_answer(
     ranked_chunks: List[str] = []
     topk_idxs: List[int] = []
     scores = []
+    if model_path is None:
+        model_path = cfg.gen_model
     
     # Step 1: Get chunks (golden, retrieved, or none)
     chunks_info = None
@@ -197,7 +202,7 @@ def get_answer(
         return ANSWER_NOT_FOUND
 
     # Step 4: Generation
-    model_path = cfg.gen_model
+    # model_path = cfg.gen_model
     system_prompt = args.system_prompt_mode or cfg.system_prompt_mode
 
     use_double = getattr(args, "double_prompt", False) or cfg.use_double_prompt
@@ -298,6 +303,8 @@ def run_chat_session(args: argparse.Namespace, cfg: RAGConfig):
         print(f"ERROR: {e}. Run 'index' mode first.")
         sys.exit(1)
 
+    semantic_router = SemanticRouter(embedding_model_path = cfg.embed_model)
+
     chat_history = []
     additional_log_info = {}
     print("Initialization complete. You can start asking questions!")
@@ -312,10 +319,13 @@ def run_chat_session(args: argparse.Namespace, cfg: RAGConfig):
                 print("Goodbye!")
                 break
             
+            
             effective_q = q
+            model_path = semantic_router.route(effective_q)
+            # model_path = "models/qwen2.5-3b-instruct-q4_k_m.gguf"
             if cfg.enable_history and chat_history:
                 try:
-                    effective_q = contextualize_query(q, chat_history, cfg.gen_model)
+                    effective_q = contextualize_query(q, chat_history, model_path)
                     additional_log_info["is_contextualizing_query"] = True
                     additional_log_info["contextualized_query"] = effective_q
                     additional_log_info["original_query"] = q
@@ -326,7 +336,11 @@ def run_chat_session(args: argparse.Namespace, cfg: RAGConfig):
                     effective_q = q
             
             # Use the single query function. get_answer also renders the streaming markdown and takes care of logging, so we need not do anything else here.
-            ans = get_answer(effective_q, cfg, args, logger, console, artifacts=artifacts, additional_log_info=additional_log_info)
+            
+            print("Routing decision - model path:", model_path)
+            
+            ans = get_answer(effective_q, cfg, args, logger, console, artifacts=artifacts, additional_log_info=additional_log_info, model_path=model_path)
+            # ans = get_answer(effective_q, cfg, args, logger, console, artifacts=artifacts, additional_log_info=additional_log_info)
 
             # Update Chat history (make it atomic for user + assistant turn)
             try:
