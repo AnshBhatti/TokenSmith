@@ -1,0 +1,402 @@
+[
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is a challenge-response system in authentication?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does a digital signature verify authenticity of data, and why can't anyone else have generated the signed data without having the private key?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast password-based authentication with challenge-response systems. What are the advantages and disadvantages of each method?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose you're designing an online banking system that requires users to authenticate themselves before accessing their accounts. How could you apply the concepts of digital signatures and public-key encryption to ensure secure authentication, even if a user's computer is compromised?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is snapshot isolation, and how does it differ from two-phase locking?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "Why do transactions that read a lot of data interfere with shorter update transactions under two-phase locking, but not under snapshot isolation?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare the advantages and disadvantages of using snapshot isolation versus two-phase locking in database systems."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a banking application uses snapshot isolation to manage customer accounts. How might write skew occur in this scenario, and what would be the consequences?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the purpose of a B+ tree index?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the findRange function work in Figure 14.12 to execute range queries on a B+ tree?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the advantages and disadvantages of using B+ trees versus balanced binary trees for indexing large datasets."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a database of employee records with attributes such as name, salary, and department. How would you design an index to efficiently retrieve all employees in a specific department who earn salaries between $50,000 and $100,000?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the main difference between LDAP and X.500 directory access protocols?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the data model of LDAP allow for multiple telephone numbers or addresses to be stored for an entry, and what implications does this have on the structure of a directory information tree (DIT)?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the Lightweight Directory Access Protocol (LDAP) with other directory access protocols like X.500 in terms of complexity and usage."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose you are designing an employee database for a large company with multiple offices across different countries. How would you apply the concepts of LDAP to organize and manage this data, including entries, distinguished names, and object classes?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the main difference between two-phase locking and optimistic concurrency control?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the mechanism of snapshot isolation ensure that transactions are executed in a serializable manner, and why is it more efficient than two-phase locking in certain situations?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the pros and cons of using online index creation versus blocking all updates to the relation while creating an index."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a web application that allows users to create and manage events. If multiple users are trying to update the same event simultaneously, how can we use the concepts discussed in this chapter to ensure data consistency and prevent lost updates?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the purpose of a least recently used (LRU) scheme in buffer replacement strategy?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the use of pinned blocks prevent damage to data and ensure correct reading/writing operations in a database system?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare the LRU scheme with other possible buffer replacement strategies, such as FIFO or random eviction. What are their advantages and disadvantages?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose you have a large-scale e-commerce website that handles millions of user requests per day. How would you implement a buffer replacement strategy to optimize performance and prevent data corruption?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is SQL injection?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does a malicious user manage to insert an arbitrary SQL statement in the application when using concatenation with user input in SQL queries?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast prepared statements and adding escape characters to prevent SQL injection attacks."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a user wants to sort search results by a specific attribute, but the attribute name is not explicitly mentioned. How can an application prevent SQL injection attacks in this scenario?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is a bottleneck in a computer system?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the queueing theory help to identify bottlenecks in database systems?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the different levels of tuning in database systems, including schema and queries, database-system parameters, and hardware level."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a company is experiencing slow performance on their e-commerce website. How could they use the concepts of bottleneck identification and queueing theory to improve the speed and efficiency of their system?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What are the two methods of designing relation schemas for an E-R diagram that includes generalization?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "Why do we need to create a separate schema for the higher-level entity set in method 1, and how does this differ from method 2?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the representation of generalization (Section 6.8.6.1) with the representation of aggregation (Section 6.8.6.2). What are some key differences between these two approaches?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have an E-R diagram that includes both generalization and aggregation relationships. How would you design a schema for this diagram, and what trade-offs might you need to consider in terms of data redundancy and foreign-key constraints?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is parallel processing?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does using a large number of application servers running in parallel help handle heavy loads?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the use of caching techniques with the use of parallel database systems to reduce the load on the database."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have an e-commerce website that needs to scale to a very large number of users. How could we apply the concepts discussed in Section 9.7.2 Parallel Processing and Chapter 21-23 to ensure our database can handle the increased traffic?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the single lock-manager approach?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the single lock-manager approach prevent deadlocks, and what role do the deadlock-handling algorithms discussed in Chapter 18 play in this process?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare the advantages of the single lock-manager approach with its disadvantages. What are the trade-offs between simplicity and scalability?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a distributed database system has multiple nodes, each with a replica of a critical data item. If one node fails, how can the system ensure that all transactions involving this data item can still proceed smoothly?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the definition of round-robin partitioning?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does hash partitioning ensure an even distribution of tuples across nodes?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the advantages and disadvantages of range partitioning and hash partitioning."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a large database with millions of employee records. If we use range partitioning to distribute these records across 10 nodes, what are some potential issues that might arise if we need to query all employees with salaries between $50,000 and $100,000?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the definition of BCNF?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the computation of F+ relate to determining if a relation is in BCNF, and why might it be a tedious task?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the two methods for testing if a relation schema R satisfies BCNF: using dependencies in F versus computing every dependency in F+. Which method would you use in different scenarios, and why?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a database with a relation schema (A, B, C, D) that is decomposed into two relations (A, B) and (C, D). How might we apply the BCNF test to determine if each of these sub-relations is in BCNF?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the primary type of data in SQL?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does embedded SQL translate requests expressed in SQL into function calls at compile time, and what are the implications for runtime behavior?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast dynamic SQL and embedded SQL. What are their respective strengths and weaknesses when accessing an SQL database from a general-purpose programming language?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose you're building a web application that needs to retrieve user data from a relational database. However, the application also requires sending personalized email notifications based on the retrieved data. How would you use JDBC or ODBC to access the database and perform non-declarative actions like printing reports?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the definition of a superkey in relational algebra?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the division operator work in relational algebra? Can you explain it with an example?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the concepts of primary key and foreign key. How do they differ in their roles in maintaining referential integrity?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a database that stores information about students, courses, and instructors. If we want to find all students who have taken at least one course taught by an instructor from the Physics department, how would we write this query using relational algebra?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the difference between total and partial specialization in generalization/specialization?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the completeness constraint on specialization affect the insertion and deletion of entities in a higher-level entity set?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the use of aggregation versus creating redundant relationships to model complex relationships between entities."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a university wants to track not only student evaluations but also faculty evaluations. How would you modify the E-R diagram using aggregation to accommodate this new requirement?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What are the main differences between resource consumption cost model and response-time cost model in parallel query evaluation?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does partitioning algorithms help minimize skew in data distribution among nodes, and what statistics can be used to estimate potential for skew?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the two approaches described in Section 22.7.3 Choosing a Parallel Query Plan: simple approach vs principled approach."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a large-scale database with millions of users, and we want to optimize query performance by partitioning data on multiple attributes. How can we apply the concepts discussed in this chapter to design an efficient physical-storage organization for our database?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is an update log record?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the deferred-modification technique affect transaction overhead?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast shadow copying with shadow paging in terms of database modification techniques."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a user wants to edit a large document using a text editor that uses shadow copying. If the user saves the document but then realizes they want to make further changes, what would happen if the system crashed before the new copy was updated?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is a superkey in database theory?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How do functional dependencies allow us to express constraints that uniquely identify attribute values?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the use of superkeys versus functional dependencies in representing real-world constraints."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a relation schema for students with attributes student_id, name, course_name, and grade. How can we apply the concept of functional dependencies to ensure that each student has only one unique grade value associated with them?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the nested-loop join algorithm and how does it work?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "Why is the nested-loop join algorithm expensive in terms of time complexity, and what are some strategies to optimize its performance?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the block nested-loop join with the basic nested-loop join in terms of their advantages and disadvantages."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a large database containing information about students and courses. How would you apply the concepts learned from the nested-loop join algorithm to optimize the query performance for retrieving all students who are enrolled in a specific course?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What are the three levels of database tuning?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How do changes to the logical schema impact the hardware bottleneck, and what steps should be taken if performance is still poor after tuning queries and physical schema?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare the benefits and drawbacks of tuning at different levels (schema, parameters, hardware) in terms of system independence and automation."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a web application experiences a sudden surge in traffic. How could you apply the concepts of connection pooling, load balancing, and caching to improve responsiveness without modifying the application code?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is Object-Relational Mapping (ORM) and how does it differ from direct access to a relational database?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How do object-relational mapping systems translate queries written on the object model into SQL queries on the underlying relational database, and what are the implications of this process for performance and data consistency?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the benefits and drawbacks of using an Object-Relational Mapping (ORM) system versus writing direct SQL queries to communicate with a database. What scenarios might favor one approach over the other?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we are building a web application that requires storing and querying large amounts of user-generated text data. How could we apply object-relational mapping concepts to this scenario, and what potential performance benefits or drawbacks should we consider?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is snapshot isolation in database systems?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does multiversioning contribute to the mechanism of snapshot isolation, and why are transactions given two timestamps (StartTS and CommitTS) for this purpose?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast snapshot isolation with other concurrency control schemes. What are its advantages over traditional locking mechanisms?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a company has a large e-commerce database that handles thousands of concurrent transactions per second. How could the principles of snapshot isolation be applied to ensure data consistency and prevent conflicts between transactions?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is a dense index?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the system handle duplicate search-key values in a dense index?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast how insertion and deletion algorithms work for dense and sparse indices."
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose we have a database with millions of records, and we want to implement a multilevel index. How would we modify the insertion and deletion algorithms described in the text to handle this scenario?"
+    },
+    {
+        "query_type": "Basic retrieval",
+        "query": "What is the purpose of cookies in servlet sessions?"
+    },
+    {
+        "query_type": "Causal reasoning",
+        "query": "How does the servlet API track a session and store information pertaining to it, and what are the implications of this mechanism on user authentication?"
+    },
+    {
+        "query_type": "Synthesis",
+        "query": "Compare and contrast the use of cookies versus the servlet API for managing sessions in web applications. What are the advantages and disadvantages of each approach?"
+    },
+    {
+        "query_type": "Extrapolation",
+        "query": "Suppose a user attempts to access a restricted area of a website without logging in. Describe how the servlet would handle this situation, including any error messages or redirects that might occur."
+    }
+]

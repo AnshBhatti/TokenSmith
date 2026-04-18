@@ -28,14 +28,14 @@ You must adjust your definition of 'Complete' and 'Deep' based on the category:
 - **Extrapolation**: Must apply textbook rules to the new scenario. Correct logical application is required for a 10.
 
 ### **Step 2: Comparison & Dominance Rules**
-- **The Dominance Rule**: If one answer provides mechanistic 'how' logic and another only provides a 'what' definition, the deeper answer MUST score at least 3 points higher in Technical Depth.
+- **The Dominance Rule**: If one answer provides 'how' logic and another only provides a 'what' definition, the deeper answer MUST score at least 3 points higher in Technical Depth.
 - **The Anti-Filler Rule**: If an answer repeats the same point multiple times or includes filler content (e.g., 'Here's an explanation'), it MUST be penalized in Relevance and Clarity.
 - **Relative Ranking**: You must rank these answers. They cannot all be 'excellent.'
 
 ### **Step 3: Scoring Protocol (1-10)**
 - **8-10**: Perfect, concise, and explains internal database logic.
 - **5-7**: Accurate and complete, but lacks the highest level of technical nuance.
-- **3-4**: Correct 'gist' but misses the 'why' or is too wordy/redundant.
+- **3-4**: Correct gist but misses the why or is too wordy/redundant.
 - **1-2**: Significant omissions, inaccuracies, or irrelevant filler.
 
 **Instructions:**
@@ -55,7 +55,7 @@ class ModelScore(BaseModel):
     model_id: str = Field(description="The ID of the answer being graded (e.g., 'Answer A')")
     accuracy: int = Field(ge=1, le=10, description="Are the facts correct according to the reference material?")
     completeness: int = Field(ge=1, le=10, description="Meets specific requirements for the Query Type.")
-    technical_depth: int = Field(ge=1, le=10, description="Score 1-5 for 'What'; 6-10 for 'How' (Mechanistic logic).")
+    technical_depth: int = Field(ge=1, le=10, description="Score 1-5 for 'What'; 6-10 for 'How' and 'Why'.")
     clarity: int = Field(ge=1, le=10, description="Answer is clear and answers all parts of the query.")
     relevance: int = Field(ge=1, le=10, description="Model's answer is on-track with what the question is asking and reference material is providing")
     feedback: str = Field(description="Strict technical justification for the score.")
@@ -72,11 +72,11 @@ client = OpenAI(
     api_key="ollama", # Could be anything for localhost
 )    
 
-with open("data/model_testing_results.csv", "r") as f:
+with open("routing_test_data/model_testing_results.csv", "r") as f:
     reader = csv.reader(f)
     csv_data = list(reader)
     
-with open("data/answers.json", "r") as f:
+with open("routing_test_data/answers.json", "r") as f:
     chunk_collection = json.load(f)
 
 # weights = [0.4, 0.3, 0.2, 0.1]
@@ -127,7 +127,7 @@ for i in range(1, len(csv_data), 3):
         break
     # csv_data[i][4] = score
 print("\nSaving final results with scores to CSV...")
-with open("data/model_testing_results.csv", "w", newline="", encoding="utf-8") as f:
+with open("routing_test_data/model_testing_results.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerows(csv_data)
 print("Data saved to model_testing_results.csv")

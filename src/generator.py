@@ -125,8 +125,8 @@ def get_llama_model(model_path: str, n_ctx: int = 4096):
                                        n_ctx=n_ctx,
                                        verbose=False)
 
-        # cache = LlamaRAMCache()
-        # _LLM_CACHE[model_path].set_cache(cache)
+        cache = LlamaRAMCache()
+        _LLM_CACHE[model_path].set_cache(cache)
     return _LLM_CACHE[model_path]
 
 def stream_llama_cpp(prompt: str, model_path: str, max_tokens: int, temperature: float):
@@ -152,6 +152,7 @@ def run_llama_cpp(prompt: str, model_path: str, max_tokens: int, temperature: fl
         prompt,
         max_tokens=max_tokens,
         temperature=temperature,
+        repeat_penalty=1.15,
         stop=[ANSWER_END]
     )
 

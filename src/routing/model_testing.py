@@ -29,7 +29,7 @@ def execute():
 
 
 
-    with open("data/query_dataset.json", "r") as f:
+    with open("routing_test_data/query_dataset.json", "r") as f:
         dataset = json.load(f)
 
     # create semantic router
@@ -79,11 +79,11 @@ def execute():
             
     # Below CSVs I will use in model_grading.py to use a larger model to grade
     print("\nSaving results to CSV...")
-    with open("data/model_testing_results.csv", "w", encoding="utf-8") as f:
+    with open("routing_test_data/model_testing_results.csv", "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerows(csv_data)
 
-    with open("data/answers.json", "w", encoding="utf-8") as f:
+    with open("routing_test_data/answers.json", "w", encoding="utf-8") as f:
         json.dump(answers, f)
 
 

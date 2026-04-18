@@ -66,7 +66,7 @@ class QueryDataset:
         
     def _load_chunks(self) -> List[str]:
         chunks = []
-        filepath = self.project_root / "data/extracted_sections.json"
+        filepath = self.project_root / "routing_test_data/extracted_sections.json"
         
         if not os.path.exists(filepath):
             print(f"Error: {filepath} not found.")
@@ -164,7 +164,7 @@ class QueryDataset:
             except Exception as e:
                 print(f"Error generating queries for batch {i+1}: {e}")
 
-        output_file = self.project_root / "data/query_dataset.json"
+        output_file = self.project_root / "routing_test_data/query_dataset.json"
         try:
             os.makedirs("data", exist_ok=True)
             with open(output_file, "w", encoding="utf-8") as f:

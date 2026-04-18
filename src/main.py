@@ -303,7 +303,7 @@ def run_chat_session(args: argparse.Namespace, cfg: RAGConfig):
         print(f"ERROR: {e}. Run 'index' mode first.")
         sys.exit(1)
 
-    semantic_router = SemanticRouter(embedding_model_path = cfg.embed_model)
+    semantic_router = SemanticRouter(mode="embedder", embedding_model_path = cfg.embed_model, decoding_model_path="models/qwen2.5-3b-instruct-q4_k_m.gguf", ce_model_path="cross-encoder/ms-marco-MiniLM-L-6-v2")
 
     chat_history = []
     additional_log_info = {}
@@ -321,7 +321,7 @@ def run_chat_session(args: argparse.Namespace, cfg: RAGConfig):
             
             
             effective_q = q
-            model_path = semantic_router.route(effective_q)
+            model_path, route = semantic_router.route(effective_q)
             # model_path = "models/qwen2.5-3b-instruct-q4_k_m.gguf"
             if cfg.enable_history and chat_history:
                 try:
